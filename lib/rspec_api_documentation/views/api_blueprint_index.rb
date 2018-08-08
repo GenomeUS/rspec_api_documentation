@@ -52,7 +52,7 @@ module RspecApiDocumentation
       # cf. https://github.com/apiaryio/api-blueprint/blob/format-1A/API%20Blueprint%20Specification.md#431-resource-section
       # cf. https://tools.ietf.org/html/rfc6570#section-3.2.6
       def format_route(example)
-        route_uri = example[:route_uri].gsub(/:(.*?)([.\/?{]|$)/, '{\1}\2')
+        route_uri = example[:route_uri].gsub(/:([^&]?)([.\/?{]|$)/, '{\1}\2')
         "#{route_uri}#{example[:route_optionals]}"
       end
 
